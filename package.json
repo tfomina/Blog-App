@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open --hot --progress --colors",
+    "start": "webpack-dev-server --mode development --open --hot --history-api-fallback --progress --colors",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -32,7 +32,9 @@
   "dependencies": {
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   }
 }
