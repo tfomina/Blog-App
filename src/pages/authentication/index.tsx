@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export const Authentication: React.FC = () => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data: any) => console.log("data ", data);
+
   return (
     <div className="auth-page py-5">
       <div className="container page">
@@ -13,19 +18,23 @@ export const Authentication: React.FC = () => {
                 Need an account?
               </Link>
             </p>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
               <fieldset className="form-group">
                 <input
+                  name="email"
                   type="text"
                   className="form-control form-control-lg"
                   placeholder="Email"
+                  ref={register}
                 />
               </fieldset>
               <fieldset className="form-group">
                 <input
+                  name="password"
                   type="password"
                   className="form-control form-control-lg"
                   placeholder="Password"
+                  ref={register}
                 />
               </fieldset>
               <button
