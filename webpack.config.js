@@ -7,10 +7,13 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/index.tsx"),
+  entry: ["react-hot-loader/patch", "./src"],
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
     plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })],
+    alias: {
+      "react-dom": "@hot-loader/react-dom",
+    },
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -21,8 +24,13 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
+        use: "babel-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /\.js$/,
+        use: "source-map-loader",
+        enforce: "pre",
       },
       {
         test: /\.css$/,

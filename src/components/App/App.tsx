@@ -1,3 +1,5 @@
+import { hot } from "react-hot-loader/root";
+
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -10,7 +12,7 @@ import { Article } from "pages/article";
 import { Layout } from "components/Layout";
 import { Authentication } from "pages/authentication";
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <Layout>
@@ -25,3 +27,5 @@ export const App: React.FC = () => {
     </Router>
   );
 };
+
+export default hot(App);

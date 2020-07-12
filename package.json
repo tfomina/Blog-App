@@ -20,9 +20,14 @@
   },
   "homepage": "https://github.com/tfomina/Blog-App#readme",
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^4.3.0",
-    "ts-loader": "^8.0.0",
+    "source-map-loader": "^1.0.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
@@ -31,6 +36,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "0.0.6",
+    "@hot-loader/react-dom": "^16.13.0",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
@@ -39,6 +45,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.0.2",
+    "react-hot-loader": "^4.12.21",
     "react-router-dom": "^5.2.0",
     "style-loader": "^1.2.1",
     "yup": "^0.29.1"
