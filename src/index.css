@@ -12,6 +12,11 @@
   border: 1px solid #ced4da;
   -webkit-text-fill-color: #495057;
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  box-shadow: 0 0 0px 1000px #fff inset;
   transition: background-color 5000s ease-in-out 0s;
   padding: 0.5rem 1rem !important;
+}
+
+.form-control:focus {
+  border-color: #343a40;
 }
