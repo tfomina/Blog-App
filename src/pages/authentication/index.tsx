@@ -1,25 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
-import * as yup from "yup";
-import clsx from "clsx";
-
-const requiredMessage = "Заполните поле";
-const wrongEmailMessage = "Неверный формат email";
-
-const schema = yup.object().shape({
-  email: yup.string().trim().email(wrongEmailMessage).required(requiredMessage),
-  password: yup.string().trim().required(requiredMessage),
-});
+import { LoginForm } from "components/LoginForm";
 
 export const Authentication: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmit = (data: any) => console.log("data ", data);
-
   return (
     <div className="auth-page py-5">
       <div className="container page">
@@ -31,48 +14,7 @@ export const Authentication: React.FC = () => {
                 Need an account?
               </Link>
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-              <fieldset className="form-group">
-                <input
-                  name="email"
-                  type="text"
-                  className={clsx(
-                    "form-control form-control-lg shadow-none",
-                    errors.email?.message && "border-danger"
-                  )}
-                  placeholder="Email"
-                  ref={register}
-                />
-                {errors.email?.message && (
-                  <div className="alert alert-danger mt-2" role="alert">
-                    {errors.email?.message}
-                  </div>
-                )}
-              </fieldset>
-              <fieldset className="form-group">
-                <input
-                  name="password"
-                  type="password"
-                  className={clsx(
-                    "form-control form-control-lg shadow-none",
-                    errors.password?.message && "border-danger"
-                  )}
-                  placeholder="Password"
-                  ref={register}
-                />
-                {errors.password?.message && (
-                  <div className="alert alert-danger mt-2" role="alert">
-                    {errors.password?.message}
-                  </div>
-                )}
-              </fieldset>
-              <button
-                className="btn btn-lg btn-success float-right"
-                type="submit"
-              >
-                Sign in
-              </button>
-            </form>
+            <LoginForm />
           </div>
         </div>
       </div>
