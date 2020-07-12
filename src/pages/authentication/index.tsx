@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
+import clsx from "clsx";
 
 const requiredMessage = "Заполните поле";
 const wrongEmailMessage = "Неверный формат email";
@@ -35,7 +36,10 @@ export const Authentication: React.FC = () => {
                 <input
                   name="email"
                   type="text"
-                  className="form-control form-control-lg"
+                  className={clsx(
+                    "form-control form-control-lg shadow-none",
+                    errors.email?.message && "border-danger"
+                  )}
                   placeholder="Email"
                   ref={register}
                 />
@@ -49,7 +53,10 @@ export const Authentication: React.FC = () => {
                 <input
                   name="password"
                   type="password"
-                  className="form-control form-control-lg"
+                  className={clsx(
+                    "form-control form-control-lg shadow-none",
+                    errors.password?.message && "border-danger"
+                  )}
                   placeholder="Password"
                   ref={register}
                 />
