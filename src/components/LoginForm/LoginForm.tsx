@@ -1,16 +1,26 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { Button } from "src/ui-controls/Button";
 import { InputWithError } from "src/ui-controls/Input";
 import { schema } from "./LoginForm.validator";
 
+type FormValues = {
+  email: string;
+  password: string;
+};
+
 export const LoginForm: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors } = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: any) => console.log("data ", data);
+  const onSubmit: SubmitHandler<FormValues> = (data) =>
+    console.log("data ", data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
