@@ -5,11 +5,11 @@ type Props = {
   children?: ReactNode;
 };
 
-export const Layout: React.FC<Props> = (props) => {
-  return (
-    <>
-      <TopBar />
-      {props.children}
-    </>
-  );
-};
+export const Layout: React.FC<Props> = (props) => (
+  <>
+    <TopBar />
+    <div className="container py-5">
+      <div className="row">{props.children}</div>
+    </div>
+  </>
+);
