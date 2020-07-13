@@ -10,7 +10,8 @@ import {
 import { GlobalFeed } from "pages/globalFeed";
 import { Article } from "pages/article";
 import { Layout } from "components/Layout";
-import { Authentication } from "pages/authentication";
+import { Login } from "pages/login";
+import { Register } from "pages/register";
 
 const App: React.FC = () => {
   return (
@@ -18,8 +19,8 @@ const App: React.FC = () => {
       <Layout>
         <Switch>
           <Route path="/" component={GlobalFeed} exact />
-          <Route path="/login" component={Authentication} />
-          <Route path="/register" component={Authentication} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           <Route path="/articles/:slug" component={Article} exact />
           <Redirect to="/" />
         </Switch>
