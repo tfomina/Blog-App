@@ -43,7 +43,7 @@ export const InputWithError = React.forwardRef<Ref, Props>((props, ref) => {
   return (
     <>
       <Input {...props} ref={ref} />
-      <ErrorMessage message={error} />
+      {error && <ErrorMessage message={error} />}
     </>
   );
 });
