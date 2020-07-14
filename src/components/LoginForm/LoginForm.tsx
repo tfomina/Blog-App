@@ -5,13 +5,13 @@ import { Button } from "src/ui-controls/Button";
 import { InputWithError } from "src/ui-controls/Input";
 import { schema } from "./LoginForm.validator";
 
-type FormValues = {
+type FormData = {
   email: string;
   password: string;
 };
 
 export const LoginForm: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm<FormValues>({
+  const { register, handleSubmit, errors } = useForm<FormData>({
     defaultValues: {
       email: "",
       password: "",
@@ -19,7 +19,7 @@ export const LoginForm: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) =>
+  const onSubmit: SubmitHandler<FormData> = (data) =>
     console.log("data ", data);
 
   return (

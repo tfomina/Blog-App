@@ -5,14 +5,14 @@ import { Button } from "src/ui-controls/Button";
 import { InputWithError } from "src/ui-controls/Input";
 import { schema } from "./RegisterForm.validator";
 
-type FormValues = {
+type FormData = {
   username: string;
   email: string;
   password: string;
 };
 
 export const RegisterForm: React.FC = () => {
-  const { register, handleSubmit, errors } = useForm<FormValues>({
+  const { register, handleSubmit, errors } = useForm<FormData>({
     defaultValues: {
       username: "",
       email: "",
@@ -21,7 +21,7 @@ export const RegisterForm: React.FC = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) =>
+  const onSubmit: SubmitHandler<FormData> = (data) =>
     console.log("data ", data);
 
   return (
