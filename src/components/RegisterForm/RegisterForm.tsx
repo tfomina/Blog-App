@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
-import { Button } from "src/ui-controls/Button";
-import { InputWithError } from "src/ui-controls/Input";
+import { Button } from "ui-controls/Button";
+import { InputWithError } from "ui-controls/Input";
 import { schema } from "./RegisterForm.validator";
 
 type FormData = {
